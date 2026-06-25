@@ -159,19 +159,6 @@ export default function Postbox({ onOpen }) {
           />
         </svg>
       </motion.button>
-
-      {/* bobbing pointer hint (animation, not words) */}
-      {!opened && (
-        <motion.div
-          className="mt-3 select-none text-4xl"
-          aria-hidden="true"
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ filter: 'drop-shadow(0 3px 4px rgba(0,0,0,0.4))' }}
-        >
-          👆
-        </motion.div>
-      )}
     </div>
   )
 }
