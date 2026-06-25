@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="600" viewBox="0 0 500 600">
+  <rect width="500" height="600" fill="#d8d4cf"/>
+  <rect width="500" height="600" fill="#000000" opacity="0.04"/>
+  <g fill="#8a8580">
+    <circle cx="250" cy="225" r="95"/>
+    <path d="M250 340 c-120 0 -190 80 -190 200 v60 h380 v-60 c0 -120 -70 -200 -190 -200 z"/>
+  </g>
+  <g fill="#5c5853" text-anchor="middle" font-family="'Trebuchet MS', sans-serif">
+    <text x="250" y="555" font-size="34" font-weight="bold" letter-spacing="3">REPLACE ME</text>
+    <text x="250" y="588" font-size="20">avani-portrait</text>
+  </g>
+</svg>

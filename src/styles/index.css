@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Theme tokens — register custom fonts + the maroon / blush palette so they
+   become Tailwind utilities (e.g. `font-marker`, `text-maroon-900`, `bg-cream`).
+   The actual font files are imported in src/main.jsx via @fontsource.
+---------------------------------------------------------------------------- */
+@theme {
+  --font-hand: "Caveat", ui-sans-serif, system-ui, cursive;
+  --font-marker: "Permanent Marker", ui-sans-serif, cursive;
+  --font-note: "Gloria Hallelujah", "Caveat", cursive;
+
+  --color-maroon-950: #3a0d15;
+  --color-maroon-900: #5c1622;
+  --color-maroon-800: #6b1a2a;
+  --color-maroon-700: #7a1f2b;
+  --color-maroon-600: #8d2535;
+
+  --color-cream: #f3ead7;
+  --color-blush: #f8d7dd;
+  --color-blush-deep: #f3bfc8;
+  --color-gold: #d9a441;
+}
+
+/* ----------------------------------------------------------------------------
+   Base resets — mobile-first, full-height, no rubber-band scroll, no tap flash.
+---------------------------------------------------------------------------- */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-maroon-900);
+  color: #fff;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Remove the blue tap highlight on mobile for our interactive elements. */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Respect users who prefer reduced motion — calm everything down. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Hide scrollbars on the letter view while keeping it scrollable. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Drifting ambient particles (petals / hearts / stars). Driven by per-particle
+   CSS variables set in AmbientParticles.jsx. */
+@keyframes ambientFloat {
+  0% {
+    transform: translate3d(0, 112vh, 0) rotate(0deg) scale(var(--p-scale, 1));
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--p-opacity, 0.7);
+  }
+  88% {
+    opacity: var(--p-opacity, 0.7);
+  }
+  100% {
+    transform: translate3d(var(--p-drift, 24px), -14vh, 0) rotate(var(--p-rot, 220deg))
+      scale(var(--p-scale, 1));
+    opacity: 0;
+  }
+}
+
+/* Soft twinkle for the little stars. */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
